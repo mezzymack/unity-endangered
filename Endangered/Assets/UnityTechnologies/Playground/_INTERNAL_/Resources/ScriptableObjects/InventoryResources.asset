@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcesTypes:
   - rocks
-  - srcoll
+  - scroll
   - food
   - Wood
   - grass
