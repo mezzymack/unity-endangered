@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0f913463b0455ab478b1629dedfa9b7b
+timeCreated: 1456323233
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56866
+  packageName: Easy Front End
+  packageVersion: 1.01
+  assetPath: Assets/RuleOfFun/EasyFrontEnd/Scripts/EFE_BackgroundFade.cs
+  uploadId: 204077
