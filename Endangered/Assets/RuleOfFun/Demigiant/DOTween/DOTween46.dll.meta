@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 7226d50297a95f1489892f01d99714b1
+timeCreated: 1456763625
+licenseType: Store
+PluginImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder: {}
+  isPreloaded: 0
+  platformData:
+    Any:
+      enabled: 1
+      settings: {}
+    Editor:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+    WindowsStoreApps:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56866
+  packageName: Easy Front End
+  packageVersion: 1.01
+  assetPath: Assets/RuleOfFun/Demigiant/DOTween/DOTween46.dll
+  uploadId: 204077
