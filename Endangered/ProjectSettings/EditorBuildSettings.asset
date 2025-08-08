@@ -28,6 +28,12 @@ EditorBuildSettings:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    path: Assets/Scenes/Menu.unity
+    guid: b27178a4c894d1146bfcc3753de47cb1
+  - enabled: 1
+>>>>>>> Stashed changes
 =======
     path: Assets/Scenes/Menu.unity
     guid: b27178a4c894d1146bfcc3753de47cb1
