@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/UnityTechnologies/Playground/Examples/Roguelike/Roguelike.unity
     guid: ad15a26015e49439387b05c22fe7a962
   - enabled: 1
+<<<<<<< Updated upstream
+=======
+    path: Assets/Scenes/Menu.unity
+    guid: b27178a4c894d1146bfcc3753de47cb1
+  - enabled: 1
+>>>>>>> Stashed changes
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
