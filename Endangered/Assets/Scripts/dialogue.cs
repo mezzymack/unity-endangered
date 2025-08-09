@@ -5,9 +5,6 @@ using System.Collections;
 
 public class dialogue : MonoBehaviour
 {
-    // This script handles dialogue interactions
-
-    // Create variables for dialogue management
     [Header("UI References")]
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TMP_Text speakerText;
@@ -22,19 +19,30 @@ public class dialogue : MonoBehaviour
     private bool dialogueActivated;
     private int step;
     private bool isTyping;
-    private Coroutine typingCoroutine; // Coroutine for typewriter effect
-    private bool justEntered = false; // Prevents dialogue from activating twice
+    private Coroutine typingCoroutine;
+    private bool justEntered = false;
 
     [Header("Typing Settings")]
-    [SerializeField] private float typeSpeed = 0.03f;
+    [SerializeField] private float typeSpeed = 0.18f;          // slower time between letters
+    [SerializeField] private float punctuationPause = 0.6f;    // longer pause after punctuation
+    [SerializeField] private int soundFrequency = 4;           // play sound every 4 letters
+
+    [Header("Typing Sounds")]
+    [SerializeField] private AudioClip Dialogue1;
+    [SerializeField] private AudioClip Dialogue2;
+    private AudioSource audioSource;
+    private bool toggleSound = false;
+
+    void Awake()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+    }
 
     void Update()
     {
-        // Check if the dialogue is activated and the player presses the 'T' key
         if (dialogueActivated && Input.GetKeyDown(KeyCode.T) && !justEntered)
         {
-
-            // If currently typing, complete the typing effect, or else show next line
             if (isTyping)
             {
                 CompleteTyping();
@@ -48,7 +56,6 @@ public class dialogue : MonoBehaviour
 
     void ShowNextDialogueLine()
     {
-        // Check if player has reached the end of the dialogue
         if (step >= speaker.Length)
         {
             dialogueCanvas.SetActive(false);
@@ -56,35 +63,54 @@ public class dialogue : MonoBehaviour
             return;
         }
 
-        // Activate the dialogue canvas and update the text and portrait
         dialogueCanvas.SetActive(true);
         speakerText.text = speaker[step];
         portraitImage.sprite = portrait[step];
 
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypeText(dialogueWords[step]));
-        step += 1;
+        step++;
     }
 
     IEnumerator TypeText(string text)
     {
-        // Typewriter effect
         isTyping = true;
         dialogueText.text = "";
 
-        // Clear previous text
+        int letterIndex = 0;
+
         foreach (char c in text)
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(typeSpeed);
+
+            if (!char.IsWhiteSpace(c) && letterIndex % soundFrequency == 0)
+            {
+                PlayLetterSound();
+            }
+
+            letterIndex++;
+
+            if (".,!?".Contains(c.ToString()))
+            {
+                yield return new WaitForSeconds(punctuationPause);
+            }
+            else
+            {
+                yield return new WaitForSeconds(typeSpeed);
+            }
         }
 
         isTyping = false;
     }
 
+    void PlayLetterSound()
+    {
+        audioSource.PlayOneShot(toggleSound ? Dialogue1 : Dialogue2);
+        toggleSound = !toggleSound;
+    }
+
     void CompleteTyping()
     {
-        // If currently typing, complete the typing effect immediately
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
@@ -94,7 +120,6 @@ public class dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the player enters the dialogue trigger
         if (collision.CompareTag("Player"))
         {
             dialogueActivated = true;
@@ -107,7 +132,6 @@ public class dialogue : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Check if the player exits the dialogue trigger
         if (collision.CompareTag("Player"))
         {
             dialogueActivated = false;
@@ -120,7 +144,6 @@ public class dialogue : MonoBehaviour
 
     IEnumerator ResetJustEntered()
     {
-        // Wait for a short duration before allowing dialogue to be activated again
         yield return new WaitForSeconds(0.2f);
         justEntered = false;
     }
