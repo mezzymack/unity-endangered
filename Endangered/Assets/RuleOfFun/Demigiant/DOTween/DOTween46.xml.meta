@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 37b67d08e0e20344f907ecb9fe9f2e73
+timeCreated: 1456763632
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56866
+  packageName: Easy Front End
+  packageVersion: 1.01
+  assetPath: Assets/RuleOfFun/Demigiant/DOTween/DOTween46.xml
+  uploadId: 204077

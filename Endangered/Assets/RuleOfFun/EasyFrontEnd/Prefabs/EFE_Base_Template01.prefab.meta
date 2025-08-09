@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a83b596e6c8c23742a63731bc3607f6c
+timeCreated: 1457359954
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 56866
+  packageName: Easy Front End
+  packageVersion: 1.01
+  assetPath: Assets/RuleOfFun/EasyFrontEnd/Prefabs/EFE_Base_Template01.prefab
+  uploadId: 204077
